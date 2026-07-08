@@ -626,7 +626,7 @@
     .credentials li{grid-template-columns:1fr;}
     .wrap{padding:0 20px;}
   }
-  /* ===== Bandeau Cookies ===== */
+ /* ===== Bandeau Cookies RGPD ===== */
   #cookie-banner {
     position: fixed;
     bottom: 0; left: 0; right: 0;
@@ -658,9 +658,12 @@
     margin: 0;
     flex: 1 1 500px;
   }
+  .cookie-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
   .cookie-btn {
-    background: var(--argile);
-    color: var(--ivoire);
     border: none;
     padding: 10px 20px;
     border-radius: 3px;
@@ -670,14 +673,29 @@
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transition: background 0.2s;
+    transition: background 0.2s, color 0.2s;
   }
-  .cookie-btn:hover {
+  .cookie-btn.accept {
+    background: var(--argile);
+    color: var(--ivoire);
+  }
+  .cookie-btn.accept:hover {
     background: var(--argile-soft);
+  }
+  .cookie-btn.deny {
+    background: transparent;
+    color: var(--ivoire);
+    border: 1px solid var(--ivoire);
+    opacity: 0.8;
+  }
+  .cookie-btn.deny:hover {
+    background: rgba(255, 255, 255, 0.1);
+    opacity: 1;
   }
   @media (max-width: 600px) {
     .cookie-container { flex-direction: column; align-items: flex-start; }
-    .cookie-btn { width: 100%; text-align: center; }
+    .cookie-buttons { width: 100%; }
+    .cookie-btn { flex: 1; text-align: center; }
   }
 </style>
 <!-- Google Analytics -->
@@ -1071,30 +1089,53 @@
 <div id="cookie-banner">
   <div class="cookie-container">
     <p class="cookie-text">
-      Ce site utilise des cookies (comme Google Analytics) pour analyser l'audience et améliorer votre expérience de navigation. En poursuivant votre visite, vous acceptez leur utilisation.
+      Ce site utilise des cookies (comme Google Analytics) pour analyser l'audience et améliorer votre expérience de navigation.
     </p>
-    <button class="cookie-btn" id="accept-cookies">Accepter</button>
+    <div class="cookie-buttons">
+      <button class="cookie-btn deny" id="deny-cookies">Refuser</button>
+      <button class="cookie-btn accept" id="accept-cookies">Accepter</button>
+    </div>
   </div>
 </div>
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const banner = document.getElementById("cookie-banner");
-  const acceptBtn = document.getElementById("accept-cookies");
+  document.addEventListener("DOMContentLoaded", function () {
+    const banner = document.getElementById("cookie-banner");
+    const acceptBtn = document.getElementById("accept-cookies");
+    const denyBtn = document.getElementById("deny-cookies");
 
-  // Vérifie si l'utilisateur a déjà accepté les cookies
-  if (!localStorage.getItem("cookiesAccepted")) {
-    // Un léger délai pour une transition fluide à l'affichage
-    setTimeout(() => {
-      banner.classList.add("show");
-    }, 1000);
-  }
+    // Vérifie si l'utilisateur a déjà fait un choix
+    const cookieChoice = localStorage.getItem("cookiesConsent");
 
-  // Gestion du clic sur le bouton d'acceptation
-  acceptBtn.addEventListener("click", function () {
-    localStorage.setItem("cookiesAccepted", "true");
-    banner.classList.remove("show");
+    if (cookieChoice === null) {
+      // Aucun choix fait, on affiche le bandeau
+      setTimeout(() => {
+        banner.classList.add("show");
+      }, 1000);
+    } else if (cookieChoice === "true") {
+      // L'utilisateur avait accepté, on peut lancer les scripts de suivi ici
+      initTracking();
+    }
+
+    // Clic sur Accepter
+    acceptBtn.addEventListener("click", function () {
+      localStorage.setItem("cookiesConsent", "true");
+      banner.classList.remove("show");
+      initTracking(); // On active le suivi
+    });
+
+    // Clic sur Refuser
+    denyBtn.addEventListener("click", function () {
+      localStorage.setItem("cookiesConsent", "false");
+      banner.classList.remove("show");
+      // On ne lance rien, la navigation continue anonymement
+    });
+
+    // Fonction pour centraliser vos scripts de suivi (ex: Google Analytics)
+    function initTracking() {
+      console.log("Cookies acceptés : Scripts de suivi activés.");
+      // C'est ici que vous placeriez le code d'activation de vos outils de statistiques si nécessaire
+    }
   });
-});
 </script>
 </body>
 </html>
