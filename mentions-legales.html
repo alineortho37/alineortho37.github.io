@@ -1,127 +1,293 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mentions Légales & RGPD - Aline Rozay Orthophoniste</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: #f9f9f9;
-        }
-        .container {
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 0;
-        }
-        h2 {
-            color: #2c3e50;
-            margin-top: 30px;
-            font-size: 1.3em;
-        }
-        p, ul {
-            margin-bottom: 15px;
-        }
-        ul {
-            padding-left: 20px;
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            color: #3498db;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .back-link:hover {
-            text-decoration: underline;
-        }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.9em;
-            color: #7f8c8d;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales — Aline Rozay Orthophoniste</title>
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,340;9..144,420;9..144,500;9..144,600&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --chataigne: #3D2B1F;
+    --encre: #2A2016;
+    --lin: #F3ECE0;
+    --ivoire: #FBF8F3;
+    --argile: #A8623E;
+    --argile-soft: #C68A63;
+    --sauge: #7C8F6E;
+    --sauge-soft: #A9B89C;
+    --beige: #B89A6E;
+    --ligne: rgba(61,43,31,0.14);
+    --ombre: rgba(61,43,31,0.10);
+    --maxw: 1180px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--lin);
+    color:var(--encre);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Fraunces', serif;
+    font-weight:500;
+    color:var(--chataigne);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+
+  a{color:var(--argile); text-decoration:none; border-bottom:1px solid var(--argile-soft); transition:all 0.2s ease;}
+  a:hover{color:var(--chataigne); border-bottom-color:var(--chataigne);}
+  img{max-width:100%; display:block;}
+
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 32px;
+  }
+
+  .eyebrow{
+    font-family:'Work Sans', sans-serif;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--argile);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px;
+    height:1px;
+    background:var(--argile);
+    display:inline-block;
+  }
+
+  /* ===== Header ===== */
+  header{
+    background:rgba(243,236,224,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--ligne);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 32px;
+    max-width:var(--maxw);
+    margin:0 auto;
+  }
+  .brand{
+    font-family:'Fraunces', serif;
+    font-size:21px;
+    font-weight:500;
+    color:var(--chataigne);
+    text-decoration:none;
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    border:none;
+  }
+  .brand span{
+    font-family:'Work Sans', sans-serif;
+    font-size:11px;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--beige);
+  }
+  .back-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--chataigne);
+    border-bottom: 1px solid var(--ligne);
+  }
+
+  /* ===== Legal Content ===== */
+  .legal-hero {
+    padding: 60px 0 40px;
+    text-align: center;
+  }
+  .legal-hero h1 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin-top: 10px;
+  }
+  
+  .legal-section {
+    background: var(--ivoire);
+    border: 1px solid var(--ligne);
+    border-radius: 6px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px var(--ombre);
+  }
+
+  .legal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 20px;
+  }
+
+  .legal-block h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--ligne);
+    padding-bottom: 8px;
+  }
+
+  .legal-block p, .legal-block ul {
+    font-size: 15px;
+    color: #4A3A2C;
+    margin-bottom: 16px;
+    line-height: 1.7;
+  }
+
+  /* ===== Thread divider ===== */
+  .thread{
+    width:100%;
+    height:64px;
+    display:block;
+    margin: 20px 0;
+  }
+  .thread path{
+    fill:none;
+    stroke:var(--argile-soft);
+    stroke-width:1.6;
+    stroke-linecap:round;
+    opacity:0.55;
+  }
+  .thread circle{ fill:var(--sauge); opacity:0.7; }
+
+  /* ===== Footer ===== */
+  footer{
+    border-top:1px solid var(--ligne);
+    padding:40px 0;
+    background: var(--lin);
+  }
+  .footer-content{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    font-size:13px;
+    color:#7A6A58;
+  }
+  footer .meta a {
+    color: inherit;
+    border-bottom: 1px solid transparent;
+  }
+  footer .meta a:hover {
+    border-bottom-color: #7A6A58;
+  }
+
+  @media (max-width:768px){
+    .legal-section { padding: 24px; }
+    .footer-content { flex-direction: column; gap: 12px; text-align: center; }
+    .wrap{padding:0 20px;}
+  }
+</style>
 </head>
 <body>
 
+<header>
+  <nav class="nav">
+    <a href="index.html" class="brand">Aline Rozay <span>Orthophoniste</span></a>
     <a href="index.html" class="back-link">← Retour au site</a>
+  </nav>
+</header>
 
-    <div class="container">
-        <h1>Mentions Légales & RGPD</h1>
-        <p><em>Mis à jour en juillet 2026</em></p>
+<main class="wrap">
+  
+  <div class="legal-hero">
+    <p class="eyebrow" style="justify-content: center; padding-left: 32px;">Transparence</p>
+    <h1>Mentions Légales</h1>
+  </div>
 
-        <section>
-            <h2>1. Éditeur du site</h2>
-            <p>Le site internet disponible à l'adresse de votre domaine est édité par :</p>
-            <ul>
-                <li><strong>Nom de l'exploitant :</strong> Aline Rozay, agissant en qualité d'Entrepreneur Individuel (EI).</li>
-                <li><strong>Adresse du cabinet :</strong> 1 Rue Mireille Brochier, 37540 Saint-Cyr-sur-Loire - France</li>
-                <li><strong>Téléphone :</strong> 07 56 81 36 02</li>
-                <li><strong>Adresse e-mail :</strong> aline.ortho37@gmail.com</li>
-                <li><strong>Numéro SIRET :</strong> 10724747000019</li>
-            </ul>
-        </section>
+  <div class="legal-section">
+    <div class="legal-grid">
+      
+      <!-- Éditeur -->
+      <div class="legal-block">
+        <h2>1. Éditeur du site</h2>
+        <p>
+          Le site internet est édité et exploité par :<br>
+          <strong>Aline Rozay</strong> — Orthophoniste Libérale<br>
+          <strong>Adresse du cabinet :</strong> 1 Rue Mireille Brochier, 37540 Saint-Cyr-sur-Loire - France<br>
+          <strong>Téléphone :</strong> 07 56 81 36 02<br>
+          <strong>Email :</strong> <a href="mailto:aline.ortho37@gmail.com">aline.ortho37@gmail.com</a><br>
+          <strong>Numéro SIRET :</strong> 10724747000019<br>
+          <strong>Directeur de la publication :</strong> Aline Rozay
+        </p>
+      </div>
 
-        <section>
-            <h2>2. Profession réglementée</h2>
-            <p>L'activité d'orthophoniste exercée par l'éditeur est une profession médicale réglementée :</p>
-            <ul>
-                <li><strong>Titre professionnel :</strong> Orthophoniste diplômé d'État (obtenu en France).</li>
-                <li><strong>Règles professionnelles :</strong> Activité régie par le Code de la Santé Publique français.</li>
-                <li><strong>Autorité de contrôle :</strong> Enregistré auprès de l'ARS (Agence Régionale de Santé) Centre-Val de Loire.</li>
-                <li><strong>Numéro RPPS / ADELI :</strong> [Insérez votre numéro ici]</li>
-            </ul>
-        </section>
+      <!-- Profession réglementée -->
+      <div class="legal-block">
+        <h2>2. Profession réglementée</h2>
+        <p>
+          L'activité d'orthophoniste est une profession de santé réglementée :<br>
+          • <strong>Titre professionnel :</strong> Orthophoniste diplômé d'État (France).<br>
+          • <strong>Régulation :</strong> Activité régie par le Code de la Santé Publique.<br>
+          • <strong>Enregistrement :</strong> Enregistré auprès de l'ARS (Agence Régionale de Santé) Centre-Val de Loire sous le numéro RPPS/ADELI : <strong>[A venir]</strong>.
+        </p>
+      </div>
 
-        <section>
-            <h2>3. Directeur de la publication</h2>
-            <p><strong>Directeur de la publication :</strong> Aline Rozay</p>
-        </section>
+      <!-- Hébergeur -->
+      <div class="legal-block">
+        <h2>3. Hébergement du site</h2>
+        <p>
+          Le site est hébergé par :<br>
+          <strong>OVH Cloud</strong><br>
+          SAS au capital de 10 174 560 €<br>
+          RCS Lille Métropole 424 761 419 00045<br>
+          <strong>Adresse :</strong> 2 rue Kellermann - 59100 Roubaix - France<br>
+          <strong>Téléphone :</strong> +33 9 72 10 10 07
+        </p>
+      </div>
 
-        <section>
-            <h2>4. Hébergement du site</h2>
-            <p>Le site internet est hébergé par la société suivante :</p>
-            <ul>
-                <li><strong>Hébergeur :</strong> OVH Cloud</li>
-                <li><strong>Adresse postale :</strong> 2 rue Kellermann - 59100 Roubaix - France</li>
-                <li><strong>Téléphone de l'hébergeur :</strong> 1007 (ou +33 9 72 10 10 07)</li>
-            </ul>
-        </section>
+      <!-- Propriété intellectuelle -->
+      <div class="legal-block">
+        <h2>4. Propriété intellectuelle</h2>
+        <p>Tous les contenus présents sur ce site (textes, structure, éléments graphiques) sont la propriété exclusive d'Aline Rozay, sauf mention contraire. Toute reproduction ou représentation totale ou partielle de ce site, par quelque procédé que ce soit, sans l'autorisation expresse de l'éditeur est interdite et constituerait une contrefaçon sanctionnée par le Code de la propriété intellectuelle.</p>
+      </div>
 
-        <section>
-            <h2>5. Politique de confidentialité (RGPD)</h2>
-            <p>Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, nous vous informons sur la gestion de vos données :</p>
-            
-            <h3>Collecte et traitement des données</h3>
-            <p>Ce site internet est purement informatif. Il ne comporte pas de formulaire de contact en ligne, d'espace membre, ni de système de prise de rendez-vous direct collectant des informations personnelles. Aucune donnée à caractère personnel n'est collectée à votre insu lors de votre navigation sur ce site.</p>
+      <!-- RGPD -->
+      <div class="legal-block">
+        <h2>5. Données personnelles et Cookies</h2>
+        <p>Ce site respecte la vie privée de ses utilisateurs. Les éventuelles données collectées (via un outil d'analyse d'audience anonyme ou un formulaire de contact) sont traitées de manière confidentielle et ne sont jamais cédées à des tiers. Conformément à la loi « Informatique et Libertés » et au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant en contactant l'éditeur par email.</p>
+      </div>
 
-            <h3>Données de santé</h3>
-            <p>Par mesure de sécurité et de confidentialité, aucune donnée de santé ou information médicale ne doit être transmise par le biais d'outils numériques non sécurisés (comme une messagerie email standard). Les prises de rendez-vous et échanges d'informations s'effectuent exclusivement par téléphone ou de vive voix au cabinet.</p>
-
-            <h3>Cookies</h3>
-            <p>Ce site n'utilise aucun cookie tiers à des fins publicitaires, commerciales ou de pistage de votre activité sur internet. Seuls des cookies techniques ou de statistiques strictement anonymes (si applicables par l'hébergeur) peuvent être émis pour assurer la bonne navigation technique sur le site.</p>
-
-            <h3>Vos droits</h3>
-            <p>Pour toute question relative à la protection des données personnelles, vous pouvez contacter directement l'éditeur du site à l'adresse : <strong>aline.ortho37@gmail.com</strong>.</p>
-        </section>
     </div>
+  </div>
 
-    <footer>
-        <p>&copy; 2026 Aline Rozay - Orthophoniste. Tous droits réservés.</p>
-    </footer>
+  <!-- Élément graphique de transition -->
+  <svg class="thread" viewBox="0 0 1120 64">
+    <path d="M 0 32 Q 280 64 560 32 T 1120 32" />
+    <circle cx="560" cy="32" r="5" />
+  </svg>
+
+</main>
+
+<footer>
+  <div class="wrap footer-content">
+    <div class="meta">
+      &copy; 2026 Aline Rozay. Tous droits réservés.
+    </div>
+    <div class="meta">
+      <a href="index.html">Retour à l'accueil</a>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
